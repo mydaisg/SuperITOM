@@ -1,0 +1,225 @@
+
+========================================
+ITOM TEST REPORT
+========================================
+Date: 2026-01-09 18:29:13
+
+========================================
+TEST SUMMARY
+========================================
+Total Tests: 58
+Passed: 11
+Failed: 47
+Success Rate: 18.97%
+
+========================================
+DETAILED RESULTS
+========================================[FAIL] 
+
+[FAIL] 
+
+[PASS] Configuration File
+  Message: Config file structure is valid
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Hosts CSV File
+  Message: Hosts CSV file is valid (6 hosts)
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Local Directory
+  Message: Local directory exists
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Administrator Privileges
+  Message: Running with administrator privileges
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] PowerShell 7
+  Message: PowerShell 7 is not installed
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] WinRM
+  Message: WinRM service is running
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Host Information Collection
+  Message: Script executed successfully
+  Duration: 8.22s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] PowerShell 7 Installation
+  Message: Script executed successfully
+  Duration: 1.95s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Tools Deployment
+  Message: Script executed successfully
+  Duration: 0.26s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Local Directory Creation
+  Message: Script executed successfully
+  Duration: 0.03s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Host Renaming
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:270 char:27
++     [string]$ConfigPath = "D:\GitHub\SuperITOM\config\config.json",
++                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The assignment expression is not valid. The input to an assignment operator must be an object that is able to accept assignments, such as a variable or a property.
+  Exit Code: -1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] WinRM Configuration
+  Message: Script executed successfully
+  Duration: 9.71s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Domain Joining
+  Message: Script failed with exit code: 1
+  Duration: 0.02s
+  Exit Code: 1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Health Check
+  Message: Script failed with exit code: 1
+  Duration: 7.45s
+  Exit Code: 1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Local Admin Configuration
+  Message: Script failed with exit code: 1
+  Duration: 0.03s
+  Exit Code: 1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] DML Deployment
+  Message: Script executed successfully
+  Duration: 0.07s
+
+
+========================================
+FAILED TESTS
+========================================- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- PowerShell 7: PowerShell 7 is not installed
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- Host Renaming: Exception: At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:270 char:27
++     [string]$ConfigPath = "D:\GitHub\SuperITOM\config\config.json",
++                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The assignment expression is not valid. The input to an assignment operator must be an object that is able to accept assignments, such as a variable or a property.
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- Domain Joining: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- Health Check: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- Local Admin Configuration: Script failed with exit code: 1
+- : 
+- : 
+- : 
+
+========================================
+RECOMMENDATIONS
+========================================Please review and fix the failed tests before proceeding with deployment.
+
+========================================
+END OF REPORT
+========================================

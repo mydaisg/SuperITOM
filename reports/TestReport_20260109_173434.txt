@@ -1,0 +1,204 @@
+========================================
+ITOM TEST REPORT
+========================================
+Date: 2026-01-09 17:34:34
+
+========================================
+TEST SUMMARY
+========================================
+Total Tests: 58
+Passed: 10
+Failed: 48
+Success Rate: 17.24%
+
+========================================
+DETAILED RESULTS
+========================================
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Configuration File
+  Message: Config file structure is valid
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Hosts CSV File
+  Message: Hosts CSV file is valid (6 hosts)
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Local Directory
+  Message: Local directory exists
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Administrator Privileges
+  Message: Running with administrator privileges
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] PowerShell 7
+  Message: PowerShell 7 is not installed
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] WinRM
+  Message: WinRM service is running
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] Domain Joining
+  Message: Script failed with exit code: 1  Duration: 0.04s
+  Exit Code: 1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] Local Admin Configuration
+  Message: Script failed with exit code: 1  Duration: 0.02s
+  Exit Code: 1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] PowerShell 7 Installation
+  Message: Script executed successfully  Duration: 6.50s
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Host Renaming
+  Message: Script executed successfully  Duration: 377.72s
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] DML Deployment
+  Message: Exception: Cannot process argument transformation on parameter 'Config'. Cannot convert value "@{domain=; local_admin=; paths=; winrm=; execution=; linux=; naming=}" to type "System.Collections.Hashtable". Error: "Cannot convert the "@{domain=; local_admin=; paths=; winrm=; execution=; linux=; naming=}" value of type "System.Management.Automation.PSCustomObject" to type "System.Collections.Hashtable"."  Exit Code: -1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] Health Check
+  Message: Script failed with exit code: 1  Duration: 5.94s
+  Exit Code: 1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Tools Deployment
+  Message: Script executed successfully  Duration: 0.23s
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] WinRM Configuration
+  Message: Exception: Cannot process argument transformation on parameter 'Config'. Cannot convert value "@{domain=; local_admin=; paths=; winrm=; execution=; linux=; naming=}" to type "System.Collections.Hashtable". Error: "Cannot convert the "@{domain=; local_admin=; paths=; winrm=; execution=; linux=; naming=}" value of type "System.Management.Automation.PSCustomObject" to type "System.Collections.Hashtable"."  Exit Code: -1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Host Information Collection
+  Message: Script executed successfully  Duration: 4.31s
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Local Directory Creation
+  Message: Script executed successfully  Duration: 0.02s
+
+
+========================================
+FAILED TESTS
+========================================- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- PowerShell 7: PowerShell 7 is not installed
+- : 
+- : 
+- : 
+- : 
+- : 
+- Domain Joining: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- Local Admin Configuration: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- DML Deployment: Exception: Cannot process argument transformation on parameter 'Config'. Cannot convert value "@{domain=; local_admin=; paths=; winrm=; execution=; linux=; naming=}" to type "System.Collections.Hashtable". Error: "Cannot convert the "@{domain=; local_admin=; paths=; winrm=; execution=; linux=; naming=}" value of type "System.Management.Automation.PSCustomObject" to type "System.Collections.Hashtable"."
+- : 
+- : 
+- : 
+- Health Check: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- WinRM Configuration: Exception: Cannot process argument transformation on parameter 'Config'. Cannot convert value "@{domain=; local_admin=; paths=; winrm=; execution=; linux=; naming=}" to type "System.Collections.Hashtable". Error: "Cannot convert the "@{domain=; local_admin=; paths=; winrm=; execution=; linux=; naming=}" value of type "System.Management.Automation.PSCustomObject" to type "System.Collections.Hashtable"."
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+
+========================================
+RECOMMENDATIONS
+========================================Please review and fix the failed tests before proceeding with deployment.
+
+========================================
+END OF REPORT
+========================================

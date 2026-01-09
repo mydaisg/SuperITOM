@@ -1,0 +1,279 @@
+
+========================================
+ITOM TEST REPORT
+========================================
+Date: 2026-01-09 18:28:12
+
+========================================
+TEST SUMMARY
+========================================
+Total Tests: 58
+Passed: 9
+Failed: 49
+Success Rate: 15.52%
+
+========================================
+DETAILED RESULTS
+========================================[FAIL] 
+
+[FAIL] 
+
+[PASS] Configuration File
+  Message: Config file structure is valid
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Hosts CSV File
+  Message: Hosts CSV file is valid (6 hosts)
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Local Directory
+  Message: Local directory exists
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Administrator Privileges
+  Message: Running with administrator privileges
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] PowerShell 7
+  Message: PowerShell 7 is not installed
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] WinRM
+  Message: WinRM service is running
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] WinRM Configuration
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\0_winrm.ps1:22 char:54
++         $config.PSObject.Properties | ForEach-Object {
++                                                      ~
+Missing closing '}' in statement block or type definition.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_winrm.ps1:19 char:26
++     if (Test-Path $Path) {
++                          ~
+Missing closing '}' in statement block or type definition.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_winrm.ps1:17 char:21
++ function Get-Config {
++                     ~
+Missing closing '}' in statement block or type definition.
+  Exit Code: -1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Health Check
+  Message: Script failed with exit code: 1
+  Duration: 11.93s
+  Exit Code: 1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Domain Joining
+  Message: Script failed with exit code: 1
+  Duration: 0.03s
+  Exit Code: 1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] PowerShell 7 Installation
+  Message: Script executed successfully
+  Duration: 1.92s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Host Information Collection
+  Message: Script executed successfully
+  Duration: 4.91s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Local Admin Configuration
+  Message: Script failed with exit code: 1
+  Duration: 0.02s
+  Exit Code: 1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Local Directory Creation
+  Message: Script executed successfully
+  Duration: 0.04s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] DML Deployment
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\2_deploy_dml.ps1:22 char:54
++         $config.PSObject.Properties | ForEach-Object {
++                                                      ~
+Missing closing '}' in statement block or type definition.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_deploy_dml.ps1:19 char:26
++     if (Test-Path $Path) {
++                          ~
+Missing closing '}' in statement block or type definition.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_deploy_dml.ps1:17 char:21
++ function Get-Config {
++                     ~
+Missing closing '}' in statement block or type definition.
+  Exit Code: -1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Tools Deployment
+  Message: Script executed successfully
+  Duration: 0.26s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Host Renaming
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:270 char:27
++     [string]$ConfigPath = "D:\GitHub\SuperITOM\config\config.json",
++                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The assignment expression is not valid. The input to an assignment operator must be an object that is able to accept assignments, such as a variable or a property.
+  Exit Code: -1
+
+
+========================================
+FAILED TESTS
+========================================- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- PowerShell 7: PowerShell 7 is not installed
+- : 
+- : 
+- : 
+- : 
+- : 
+- WinRM Configuration: Exception: At D:\GitHub\SuperITOM\scripts\windows\0_winrm.ps1:22 char:54
++         $config.PSObject.Properties | ForEach-Object {
++                                                      ~
+Missing closing '}' in statement block or type definition.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_winrm.ps1:19 char:26
++     if (Test-Path $Path) {
++                          ~
+Missing closing '}' in statement block or type definition.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_winrm.ps1:17 char:21
++ function Get-Config {
++                     ~
+Missing closing '}' in statement block or type definition.
+- : 
+- : 
+- : 
+- Health Check: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- Domain Joining: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- Local Admin Configuration: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- DML Deployment: Exception: At D:\GitHub\SuperITOM\scripts\windows\2_deploy_dml.ps1:22 char:54
++         $config.PSObject.Properties | ForEach-Object {
++                                                      ~
+Missing closing '}' in statement block or type definition.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_deploy_dml.ps1:19 char:26
++     if (Test-Path $Path) {
++                          ~
+Missing closing '}' in statement block or type definition.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_deploy_dml.ps1:17 char:21
++ function Get-Config {
++                     ~
+Missing closing '}' in statement block or type definition.
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- Host Renaming: Exception: At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:270 char:27
++     [string]$ConfigPath = "D:\GitHub\SuperITOM\config\config.json",
++                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The assignment expression is not valid. The input to an assignment operator must be an object that is able to accept assignments, such as a variable or a property.
+
+========================================
+RECOMMENDATIONS
+========================================Please review and fix the failed tests before proceeding with deployment.
+
+========================================
+END OF REPORT
+========================================

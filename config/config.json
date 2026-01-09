@@ -1,0 +1,59 @@
+{
+  "domain": {
+    "name": "lvcc.local",
+    "ou_path": "OU=Computers,OU=LVCC,DC=lvcc,DC=local",
+    "admin_user": "lvcc\\dml_admin",
+    "admin_password": "",
+    "dns_servers": ["10.0.0.1", "10.0.0.2"]
+  },
+  "local_admin": {
+    "new_admin_name": "DML_Admin",
+    "new_admin_password": "",
+    "disable_default_admin": true,
+    "create_admin_group": "DML_Admins"
+  },
+  "paths": {
+    "dfs_share": "\\\\DFS\\DML",
+    "local_dfs_backup": "D:\\DFS\\DML",
+    "local_work_dir": "D:\\LVCC_LOCAL_DML",
+    "log_upload_path": "\\\\DFS\\DML\\Client_log",
+    "reports_dir": "D:\\GitHub\\SuperITOM\\reports",
+    "pwsh7_installer": "PowerShell-7.5.3-win-x64.msi",
+    "tools_path": "tools",
+    "putty_tools": "puttytools",
+    "sysinternals": "SysinternalsSuite"
+  },
+  "winrm": {
+    "enable_https": false,
+    "port": 5985,
+    "max_envelop_size_kb": 500,
+    "max_timeout_ms": 180000
+  },
+  "execution": {
+    "max_concurrent": 10,
+    "retry_count": 3,
+    "retry_delay_seconds": 30,
+    "timeout_minutes": 60
+  },
+  "linux": {
+    "ssh_port": 22,
+    "ssh_user": "root",
+    "ssh_key_path": "~/.ssh/id_rsa",
+    "required_packages": ["openssh-server", "sudo", "net-tools", "vim"]
+  },
+  "naming": {
+    "prefix": "PC",
+    "location_codes": {
+      "BJ": "Beijing",
+      "SH": "Shanghai",
+      "GZ": "Guangzhou",
+      "SZ": "Shenzhen"
+    },
+    "department_codes": {
+      "IT": "IT",
+      "HR": "HR",
+      "FIN": "Finance",
+      "OPS": "Operations"
+    }
+  }
+}

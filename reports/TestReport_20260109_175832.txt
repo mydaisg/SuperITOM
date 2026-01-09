@@ -1,0 +1,518 @@
+
+========================================
+ITOM TEST REPORT
+========================================
+Date: 2026-01-09 17:58:49
+
+========================================
+TEST SUMMARY
+========================================
+Total Tests: 58
+Passed: 7
+Failed: 51
+Success Rate: 12.07%
+
+========================================
+DETAILED RESULTS
+========================================[FAIL] 
+
+[FAIL] 
+
+[PASS] Configuration File
+  Message: Config file structure is valid
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Hosts CSV File
+  Message: Hosts CSV file is valid (6 hosts)
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Local Directory
+  Message: Local directory exists
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Administrator Privileges
+  Message: Running with administrator privileges
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] PowerShell 7
+  Message: PowerShell 7 is not installed
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] WinRM
+  Message: WinRM service is running
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] PowerShell 7 Installation
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\0_pwsh7.ps1:336 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_pwsh7.ps1:338 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_pwsh7.ps1:342 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_pwsh7.ps1:346 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+  Exit Code: -1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Host Renaming
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:538 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:540 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:544 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:548 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:270 char:27
++     [string]$ConfigPath = "D:\GitHub\SuperITOM\config\config.json",
++                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The assignment expression is not valid. The input to an assignment operator must be an object that is able to accept assignments, such as a variable or a property.
+  Exit Code: -1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] DML Deployment
+  Message: Script executed successfully
+  Duration: 4.70s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] WinRM Configuration
+  Message: Script executed successfully
+  Duration: 11.91s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Domain Joining
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\3_JoinDomain_LVCC.ps1:784 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\3_JoinDomain_LVCC.ps1:786 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\3_JoinDomain_LVCC.ps1:790 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\3_JoinDomain_LVCC.ps1:794 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+  Exit Code: -1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Host Information Collection
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\1_hostinfo.ps1:598 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\1_hostinfo.ps1:600 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\1_hostinfo.ps1:604 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\1_hostinfo.ps1:608 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+  Exit Code: -1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Health Check
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\7_HealthCheck.ps1:1280 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\7_HealthCheck.ps1:1282 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\7_HealthCheck.ps1:1286 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\7_HealthCheck.ps1:1290 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+  Exit Code: -1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Local Directory Creation
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\0_localdir.ps1:212 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_localdir.ps1:214 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_localdir.ps1:218 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_localdir.ps1:222 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+  Exit Code: -1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Local Admin Configuration
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\4_LocalAdmin.ps1:832 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\4_LocalAdmin.ps1:834 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\4_LocalAdmin.ps1:838 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\4_LocalAdmin.ps1:842 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+  Exit Code: -1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Tools Deployment
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:808 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:810 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:814 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:818 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+  Exit Code: -1
+
+
+========================================
+FAILED TESTS
+========================================- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- PowerShell 7: PowerShell 7 is not installed
+- : 
+- : 
+- : 
+- : 
+- : 
+- PowerShell 7 Installation: Exception: At D:\GitHub\SuperITOM\scripts\windows\0_pwsh7.ps1:336 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_pwsh7.ps1:338 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_pwsh7.ps1:342 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_pwsh7.ps1:346 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+- : 
+- : 
+- : 
+- Host Renaming: Exception: At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:538 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:540 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:544 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:548 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\2_rename_host.ps1:270 char:27
++     [string]$ConfigPath = "D:\GitHub\SuperITOM\config\config.json",
++                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The assignment expression is not valid. The input to an assignment operator must be an object that is able to accept assignments, such as a variable or a property.
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- Domain Joining: Exception: At D:\GitHub\SuperITOM\scripts\windows\3_JoinDomain_LVCC.ps1:784 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\3_JoinDomain_LVCC.ps1:786 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\3_JoinDomain_LVCC.ps1:790 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\3_JoinDomain_LVCC.ps1:794 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+- : 
+- : 
+- : 
+- Host Information Collection: Exception: At D:\GitHub\SuperITOM\scripts\windows\1_hostinfo.ps1:598 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\1_hostinfo.ps1:600 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\1_hostinfo.ps1:604 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\1_hostinfo.ps1:608 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+- : 
+- : 
+- : 
+- Health Check: Exception: At D:\GitHub\SuperITOM\scripts\windows\7_HealthCheck.ps1:1280 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\7_HealthCheck.ps1:1282 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\7_HealthCheck.ps1:1286 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\7_HealthCheck.ps1:1290 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+- : 
+- : 
+- : 
+- Local Directory Creation: Exception: At D:\GitHub\SuperITOM\scripts\windows\0_localdir.ps1:212 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_localdir.ps1:214 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_localdir.ps1:218 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\0_localdir.ps1:222 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+- : 
+- : 
+- : 
+- Local Admin Configuration: Exception: At D:\GitHub\SuperITOM\scripts\windows\4_LocalAdmin.ps1:832 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\4_LocalAdmin.ps1:834 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\4_LocalAdmin.ps1:838 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\4_LocalAdmin.ps1:842 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+- : 
+- : 
+- : 
+- Tools Deployment: Exception: At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:808 char:9
++         }
++         ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:810 char:5
++     } else {
++     ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:814 char:1
++ } else {
++ ~
+Unexpected token '}' in expression or statement.
+
+At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:818 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+
+========================================
+RECOMMENDATIONS
+========================================Please review and fix the failed tests before proceeding with deployment.
+
+========================================
+END OF REPORT
+========================================

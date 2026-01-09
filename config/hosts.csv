@@ -1,0 +1,8 @@
+Hostname,IPAddress,OSType,Location,Department,Status,Remarks
+PC-BJ-IT-001,192.168.1.101,Windows,BJ,IT,Pending,
+PC-BJ-IT-002,192.168.1.102,Windows,BJ,IT,Pending,
+PC-SH-FIN-001,192.168.2.101,Windows,SH,FIN,Pending,
+PC-GZ-OPS-001,192.168.3.101,Windows,GZ,OPS,Pending,
+LNX-BJ-IT-001,192.168.1.201,Linux,BJ,IT,Pending,
+LNX-SH-FIN-001,192.168.2.201,Linux,SH,FIN,Pending,
+PC-TEST-001,10.0.128.1,Windows,TEST,IT,Testing,Test host for debugging

@@ -1,0 +1,230 @@
+========================================
+ITOM TEST REPORT
+========================================
+Date: 2026-01-09 16:56:24
+
+========================================
+TEST SUMMARY
+========================================
+Total Tests: 58
+Passed: 5
+Failed: 53
+Success Rate: 8.62%
+
+========================================
+DETAILED RESULTS
+========================================
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Configuration File
+  Message: Config file structure is valid
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Hosts CSV File
+  Message: Hosts CSV file is valid (6 hosts)
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] Local Directory
+  Message: Local directory does not exist
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Administrator Privileges
+  Message: Running with administrator privileges
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] PowerShell 7
+  Message: PowerShell 7 is not installed
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] WinRM
+  Message: WinRM service is running
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] Local Admin Configuration
+  Message: Script failed with exit code: 1  Duration: 0.02s
+  Exit Code: 1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] WinRM Configuration
+  Message: Script failed with exit code: 1  Duration: 0.01s
+  Exit Code: 1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] Tools Deployment
+  Message: Exception: At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:213 char:42
++                 $verificationResults += "$tool: OK"
++                                          ~~~~~~
+Variable reference is not valid. ':' was not followed by a valid variable name character. Consider using ${} to delimit the name.
+
+At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:215 char:42
++                 $verificationResults += "$tool: MISSING"
++                                          ~~~~~~
+Variable reference is not valid. ':' was not followed by a valid variable name character. Consider using ${} to delimit the name.  Exit Code: -1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] PowerShell 7 Installation
+  Message: Script failed with exit code: 1  Duration: 0.01s
+  Exit Code: 1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] Health Check
+  Message: Script failed with exit code: 1  Duration: 0.02s
+  Exit Code: 1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] Domain Joining
+  Message: Script failed with exit code: 1  Duration: 0.02s
+  Exit Code: 1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] DML Deployment
+  Message: Script failed with exit code: 1  Duration: 0.02s
+  Exit Code: 1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] Host Renaming
+  Message: Script failed with exit code: 1  Duration: 0.01s
+  Exit Code: 1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] Host Information Collection
+  Message: Script failed with exit code: 1  Duration: 0.02s
+  Exit Code: 1
+
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[FAIL] 
+  Message: 
+[PASS] Local Directory Creation
+  Message: Script executed successfully  Duration: 0.06s
+
+
+========================================
+FAILED TESTS
+========================================- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- Local Directory: Local directory does not exist
+- : 
+- : 
+- : 
+- : 
+- PowerShell 7: PowerShell 7 is not installed
+- : 
+- : 
+- : 
+- : 
+- : 
+- Local Admin Configuration: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- WinRM Configuration: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- Tools Deployment: Exception: At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:213 char:42
++                 $verificationResults += "$tool: OK"
++                                          ~~~~~~
+Variable reference is not valid. ':' was not followed by a valid variable name character. Consider using ${} to delimit the name.
+
+At D:\GitHub\SuperITOM\scripts\windows\5_deploy_tools.ps1:215 char:42
++                 $verificationResults += "$tool: MISSING"
++                                          ~~~~~~
+Variable reference is not valid. ':' was not followed by a valid variable name character. Consider using ${} to delimit the name.
+- : 
+- : 
+- : 
+- PowerShell 7 Installation: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- Health Check: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- Domain Joining: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- DML Deployment: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- Host Renaming: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- Host Information Collection: Script failed with exit code: 1
+- : 
+- : 
+- : 
+
+========================================
+RECOMMENDATIONS
+========================================Please review and fix the failed tests before proceeding with deployment.
+
+========================================
+END OF REPORT
+========================================

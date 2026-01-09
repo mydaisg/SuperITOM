@@ -1,0 +1,218 @@
+
+========================================
+ITOM TEST REPORT
+========================================
+Date: 2026-01-09 19:06:28
+
+========================================
+TEST SUMMARY
+========================================
+Total Tests: 58
+Passed: 12
+Failed: 46
+Success Rate: 20.69%
+
+========================================
+DETAILED RESULTS
+========================================[FAIL] 
+
+[FAIL] 
+
+[PASS] Configuration File
+  Message: Config file structure is valid
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Hosts CSV File
+  Message: Hosts CSV file is valid (7 hosts)
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Local Directory
+  Message: Local directory exists
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Administrator Privileges
+  Message: Running with administrator privileges
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] PowerShell 7
+  Message: PowerShell 7 is not installed
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] WinRM
+  Message: WinRM service is running
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Host Renaming
+  Message: Script executed successfully
+  Duration: 394.06s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] DML Deployment
+  Message: Script executed successfully
+  Duration: 0.07s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] WinRM Configuration
+  Message: Script executed successfully
+  Duration: 9.27s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Local Admin Configuration
+  Message: Script failed with exit code: 1
+  Duration: 0.02s
+  Exit Code: 1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Tools Deployment
+  Message: Script executed successfully
+  Duration: 0.23s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] PowerShell 7 Installation
+  Message: Script executed successfully
+  Duration: 1.84s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Local Directory Creation
+  Message: Script executed successfully
+  Duration: 0.01s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[PASS] Host Information Collection
+  Message: Script executed successfully
+  Duration: 5.20s
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Health Check
+  Message: Script failed with exit code: 1
+  Duration: 4.91s
+  Exit Code: 1
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] 
+
+[FAIL] Domain Joining
+  Message: Script failed with exit code: 1
+  Duration: 0.01s
+  Exit Code: 1
+
+
+========================================
+FAILED TESTS
+========================================- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- PowerShell 7: PowerShell 7 is not installed
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- Local Admin Configuration: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- : 
+- Health Check: Script failed with exit code: 1
+- : 
+- : 
+- : 
+- Domain Joining: Script failed with exit code: 1
+
+========================================
+RECOMMENDATIONS
+========================================Please review and fix the failed tests before proceeding with deployment.
+
+========================================
+END OF REPORT
+========================================
