@@ -1,0 +1,24 @@
+v0.1
+一、	准备工作1：WinClient自动部署pwsh7
+1.	创建本地隐藏目录D:/LVCC_LOCAL_DML，并带说明信息
+2.	安装pwsh7，路径//DFS/DML/PowerShell-7.5.3-win-x64.msi
+3.	（访问不了//DFS/DML则访问本地D:\DFS\DML）
+4.	启动WinClient的WinRM以进行远程管理
+5.	安装pwsh7、启用WinRm远程、创建本地目录都用脚本
+6.	(0_pwsh7.ps1、0_winrm.ps1、0_localdir.ps1)
+7.	安装后要测试验证，并把日志含时间写入D:/LVCC_LOCAL_DML/1_ps.log
+8.	计算机机信息（systeminfo\ipconfig/all\程序列表，应用列表，net信息集）写入1_host.log
+9.	上传1_ps.log和1_host.log到//DFS/DML/Client_log/,文件名带IP地址前缀
+二、	准备工作2：下发DML至本地
+10.	下发必要脚本、工具（puttytools\SysinternalsSuite）和软件
+11.	计算机名标准化
+12.	清单和新名写入2_host.log
+13.	上传到//DFS/DML/Client_log/,文件名带hostname前缀
+三、	执行标准化3：加域
+14.	启动自动加域脚本3_JoinDomain_LVCC.ps1
+15.	自动重启与验证加域，并将日志写入3_JoingDomain.log
+16.	GPO结果，写入日志
+17.	上传到//DFS/DML/Client_log/,文件名带hostname前缀
+四、	执行标准化4：LocalAdmin
+18.	
+五、	执行标准化5:Tools下发system32下
