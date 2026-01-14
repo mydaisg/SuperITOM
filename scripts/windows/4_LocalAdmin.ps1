@@ -1,3 +1,4 @@
+# Disable default administrator account
 param(
     [string]$ConfigPath = "D:\GitHub\SuperITOM\config\config.json"
 )

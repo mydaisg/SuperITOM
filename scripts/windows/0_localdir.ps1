@@ -1,3 +1,4 @@
+# Create local working directory for DML deployment and management
 param(
     [string]$ConfigPath = "D:\GitHub\SuperITOM\config\config.json"
 )
@@ -44,7 +45,7 @@ Purpose: Local working directory for DML deployment and management
 Directory Structure:
 - Logs: Deployment and operation logs
 - Scripts: Local execution scripts
-- Temp: Temporary files
+- Temp: Temporar files
 
 DO NOT DELETE THIS DIRECTORY
 "@
