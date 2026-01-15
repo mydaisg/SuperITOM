@@ -1,4 +1,4 @@
-v0.1
+v0.9
 一、	准备工作1：WinClient自动部署pwsh7
 1.	创建本地隐藏目录D:/LVCC_LOCAL_DML，并带说明信息
 2.	安装pwsh7，路径//DFS/DML/PowerShell-7.5.3-win-x64.msi
@@ -22,3 +22,45 @@ v0.1
 四、	执行标准化4：LocalAdmin
 18.	
 五、	执行标准化5:Tools下发system32下
+
+
+一个Shiny，做为ITOM的管理控制台：
+1、项目名称SuperITOM，当前路径D:\GitHub\SuperITOM
+2、数据库：SQLite3的3个文件在D:\GitHub\SuperITOM\db
+3、DB文件要放在D:\GitHub\SuperITOM\db\GH_ITOM.db
+4、创建数据库和表的SQL脚本放db\下，如create_db.sql
+5、读取和写入数据库的r文件也放db\下，如read_db.r、write_db.r
+6、保持根目录清洁，保持 代码和数据分离，保持不同二级目录的功能
+7、index.html做为shiny的入口文件，有登录功能
+8、身份验证：使用shiny的auth模块，用户信息存储在数据库中
+9、Shiny的代码放在根目录下，不要单独创建目录
+10、Shiny的代码要符合Shiny的规范，包括ui.R、server.R、global.R等文件
+11、Shiny的代码要使用Shiny的模块机制，保持代码的可维护性和可扩展性
+13、Shiny的代码要使用Shiny的render机制，保持界面的实时更新
+14、Shiny的代码要使用Shiny的session机制，保持会话的状态
+15、Shiny的代码要使用Shiny的observe机制，保持数据的实时更新（因为主要是执行脚本记录过程和结果）
+16、主管理控制台：
+    1）登录后，显示所有计算机的状态（加域、LocalAdmin、Tools下发等）
+    2）可以对所有计算机进行批量操作（如加域、LocalAdmin、Tools下发等）
+    3）可以查看所有计算机的操作记录（如加域、LocalAdmin、Tools下发等）
+    4）可以查看所有计算机的操作日志（如加域、LocalAdmin、Tools下发等）
+    5）可以查看所有计算机的软件列表（如加域、LocalAdmin、Tools下发等）
+    6）可以查看所有计算机的应用列表（如加域、LocalAdmin、Tools下发等）
+    7）可以查看所有计算机的net信息集（如加域、LocalAdmin、Tools下发等）
+    8）可以查看所有计算机的系统信息（如加域、LocalAdmin、Tools下发等）
+    9）可以查看所有计算机的硬件信息（如加域、LocalAdmin、Tools下发等）
+    10）可以查看所有计算机的进程列表（如加域、LocalAdmin、Tools下发等）
+    11）可以查看所有计算机的服务列表（如加域、LocalAdmin、Tools下发等）
+    12）可以查看所有计算机的任务计划列表（如加域、LocalAdmin、Tools下发等）
+    13）可以查看所有计算机的计划任务列表（如加域、LocalAdmin、Tools下发等）
+    14）可以查看所有计算机的计划任务日志（如加域、LocalAdmin、Tools下发等）
+
+17、采用左边的导航栏，实现主管理控制台的功能，点击不同的导航项，显示不同的内容
+18、导航栏的每个导航项，对应一个tabPanel，每个tabPanel的内容，对应一个shiny的模块
+19、每个tabPanel的模块，要符合Shiny的模块机制，包括ui.R、server.R、global.R等文件
+20、列出功能脚本（如3_JoinDomain_LVCC.ps1、4_LocalAdmin.ps1、5_Tools.ps1等）
+21、直接点击功能脚本，执行脚本，记录过程和结果到数据库，并显示在下方消息框中
+
+cd "d:\GitHub\SuperITOM\db"; Get-Content create_db.sql | .\sqlite3.exe GH_ITOM.db
+cd "d:\GitHub\SuperITOM\db"; .\sqlite3.exe GH_ITOM.db ".tables"
+Rscript -e "shiny::runApp('D:/GitHub/SuperITOM', launch.browser = TRUE)"
