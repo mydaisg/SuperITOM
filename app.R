@@ -315,7 +315,7 @@ server <- function(input, output, session) {
         "执行完成！"
       )
       
-      writeLines(append_content, log_file, append = TRUE)
+      cat(paste(append_content, collapse = "\n"), file = log_file, append = TRUE, sep = "\n")
       
       git_output_val(paste(git_output_val(), "\n", paste(rep("=", 50), collapse = ""), "\n", "执行完成！\n"))
       
@@ -330,7 +330,7 @@ server <- function(input, output, session) {
         "执行失败！"
       )
       
-      writeLines(error_content, log_file, append = TRUE)
+      cat(paste(error_content, collapse = "\n"), file = log_file, append = TRUE, sep = "\n")
       
       git_output_val(paste(git_output_val(), "\n错误:", e$message, "\n", paste(rep("=", 50), collapse = ""), "\n", "执行失败！\n"))
       
