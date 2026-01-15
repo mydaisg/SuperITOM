@@ -65,7 +65,7 @@ dashboard_ui <- function() {
     dashboardSidebar(
       sidebarMenu(
         menuItem("Git提交", tabName = "git_commit", icon = icon("upload")),
-        menuItem("脚本管理", tabName = "script_management", icon = icon("code")),
+        menuItem("LocalDir", tabName = "script_management", icon = icon("folder-plus")),
         menuItem("系统信息", tabName = "system_info", icon = icon("server")),
         menuItem("操作记录", tabName = "operation_history", icon = icon("history")),
         menuItem("设置", tabName = "settings", icon = icon("cog"))
@@ -123,12 +123,45 @@ dashboard_ui <- function() {
         tabItem(tabName = "script_management",
           fluidRow(
             box(
-              title = "脚本管理",
+              title = "LocalDir - 本地工作目录创建",
               status = "primary",
               solidHeader = TRUE,
               width = 12,
-              h4("脚本管理功能开发中..."),
-              p("这里将提供脚本上传、编辑、执行等功能")
+              
+              fluidRow(
+                column(6,
+                  textInput("config_path", "配置文件路径:", 
+                            value = "D:/GitHub/SuperITOM/config/config.json",
+                            placeholder = "输入配置文件路径")
+                ),
+                column(6,
+                  textInput("local_dir", "本地工作目录:", 
+                            value = "D:/LVCC_LOCAL_DML",
+                            placeholder = "输入本地工作目录路径")
+                )
+              ),
+              
+              fluidRow(
+                column(6,
+                  checkboxInput("force_create", "强制重新创建", value = FALSE)
+                ),
+                column(6,
+                  actionButton("localdir_create", "创建本地目录", 
+                             icon = icon("folder-plus"),
+                             class = "btn-primary btn-lg",
+                             style = "width: 100%;")
+                )
+              )
+            )
+          ),
+          
+          fluidRow(
+            box(
+              title = "执行过程和结果",
+              status = "info",
+              solidHeader = TRUE,
+              width = 12,
+              verbatimTextOutput("localdir_output")
             )
           )
         ),
@@ -196,6 +229,7 @@ server <- function(input, output, session) {
   current_user <- reactiveVal(NULL)
   login_message_val <- reactiveVal("")
   git_output_val <- reactiveVal("")
+  localdir_output_val <- reactiveVal("")
   settings_output_val <- reactiveVal("")
   
   output$app_ui <- renderUI({
@@ -338,6 +372,111 @@ server <- function(input, output, session) {
       )
       
       git_output_val(final_output)
+      
+      error_content <- c(
+        "",
+        paste("错误:", e$message),
+        "",
+        paste(rep("=", 50), collapse = ""),
+        "执行失败！"
+      )
+      
+      cat(paste(error_content, collapse = "\n"), file = log_file, append = TRUE, sep = "\n")
+      
+      showNotification("执行失败", type = "error")
+    })
+  })
+  
+  output$localdir_output <- renderPrint({
+    cat(localdir_output_val())
+  })
+  
+  observeEvent(input$localdir_create, {
+    script_path <- input$script_path
+    config_path <- input$config_path
+    local_dir <- input$local_dir
+    force <- input$force_create
+    log_dir <- input$log_dir
+    
+    localdir_script_path <- "D:/GitHub/SuperITOM/scripts/windows/0_localdir.ps1"
+    
+    if (!file.exists(localdir_script_path)) {
+      localdir_output_val("错误: LocalDir脚本文件不存在")
+      showNotification("LocalDir脚本文件不存在", type = "error")
+      return()
+    }
+    
+    if (!file.exists(config_path)) {
+      localdir_output_val("错误: 配置文件不存在")
+      showNotification("配置文件不存在", type = "error")
+      return()
+    }
+    
+    cmd_parts <- c("pwsh", sprintf("-File \"%s\"", localdir_script_path))
+    cmd_parts <- c(cmd_parts, sprintf("-ConfigPath \"%s\"", config_path))
+    
+    cmd <- paste(cmd_parts, collapse = " ")
+    
+    timestamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
+    log_file <- paste0(log_dir, "/localdir_", timestamp, ".log")
+    
+    if (!dir.exists(log_dir)) {
+      dir.create(log_dir, recursive = TRUE)
+    }
+    
+    log_content <- c(
+      paste("执行时间:", Sys.time()),
+      paste("命令:", cmd),
+      paste("配置文件:", config_path),
+      paste("本地工作目录:", local_dir),
+      paste("强制重新创建:", ifelse(force, "是", "否")),
+      "",
+      "执行过程和结果:",
+      paste(rep("=", 50), collapse = "")
+    )
+    
+    writeLines(log_content, log_file)
+    
+    localdir_output_val(paste(log_content, collapse = "\n"))
+    
+    tryCatch({
+      result <- system(cmd, intern = TRUE, ignore.stderr = FALSE)
+      result_text <- paste(result, collapse = "\n")
+      
+      final_output <- paste(
+        localdir_output_val(),
+        result_text,
+        "",
+        paste(rep("=", 50), collapse = ""),
+        "执行完成！",
+        sep = "\n"
+      )
+      
+      localdir_output_val(final_output)
+      
+      append_content <- c(
+        "",
+        result_text,
+        "",
+        paste(rep("=", 50), collapse = ""),
+        "执行完成！"
+      )
+      
+      cat(paste(append_content, collapse = "\n"), file = log_file, append = TRUE, sep = "\n")
+      
+      showNotification(paste("日志已保存:", log_file), type = "message")
+      
+    }, error = function(e) {
+      final_output <- paste(
+        localdir_output_val(),
+        paste("错误:", e$message),
+        "",
+        paste(rep("=", 50), collapse = ""),
+        "执行失败！",
+        sep = "\n"
+      )
+      
+      localdir_output_val(final_output)
       
       error_content <- c(
         "",

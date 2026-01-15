@@ -1,0 +1,15 @@
+执行时间: 2026-01-15 22:12:47.582783
+命令: pwsh -File "D:/GitHub/SuperITOM/scripts/windows/0_localdir.ps1" -ConfigPath "D:/GitHub/SuperITOM/config/config.json"
+配置文件: D:/GitHub/SuperITOM/config/config.json
+本地工作目录: D:/LVCC_LOCAL_DML
+强制重新创建: 否
+
+执行过程和结果:
+==================================================
+
+[2026-01-15 22:12:48] [INFO] === Starting Local Directory Creation ===
+[2026-01-15 22:12:48] [INFO] Target directory: D:\LVCC_LOCAL_DML
+[2026-01-15 22:12:48] [INFO] === Local Directory Creation Completed Successfully ===
+
+==================================================
+执行完成！
