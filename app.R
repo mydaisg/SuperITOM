@@ -115,7 +115,7 @@ dashboard_ui <- function() {
               status = "info",
               solidHeader = TRUE,
               width = 12,
-              verbatimTextOutput("git_output", placeholder = TRUE)
+              verbatimTextOutput("git_output")
             )
           )
         ),
@@ -249,7 +249,7 @@ server <- function(input, output, session) {
   })
   
   output$git_output <- renderPrint({
-    git_output_val()
+    cat(git_output_val())
   })
   
   observeEvent(input$git_commit, {
@@ -299,13 +299,21 @@ server <- function(input, output, session) {
     writeLines(log_content, log_file)
     
     git_output_val(paste(log_content, collapse = "\n"))
-    git_output_val(paste(git_output_val(), "\n"))
     
     tryCatch({
       result <- system(cmd, intern = TRUE, ignore.stderr = FALSE)
       result_text <- paste(result, collapse = "\n")
       
-      git_output_val(paste(git_output_val(), result_text))
+      final_output <- paste(
+        git_output_val(),
+        result_text,
+        "",
+        paste(rep("=", 50), collapse = ""),
+        "执行完成！",
+        sep = "\n"
+      )
+      
+      git_output_val(final_output)
       
       append_content <- c(
         "",
@@ -317,11 +325,20 @@ server <- function(input, output, session) {
       
       cat(paste(append_content, collapse = "\n"), file = log_file, append = TRUE, sep = "\n")
       
-      git_output_val(paste(git_output_val(), "\n", paste(rep("=", 50), collapse = ""), "\n", "执行完成！\n"))
-      
       showNotification(paste("日志已保存:", log_file), type = "message")
       
     }, error = function(e) {
+      final_output <- paste(
+        git_output_val(),
+        paste("错误:", e$message),
+        "",
+        paste(rep("=", 50), collapse = ""),
+        "执行失败！",
+        sep = "\n"
+      )
+      
+      git_output_val(final_output)
+      
       error_content <- c(
         "",
         paste("错误:", e$message),
@@ -331,8 +348,6 @@ server <- function(input, output, session) {
       )
       
       cat(paste(error_content, collapse = "\n"), file = log_file, append = TRUE, sep = "\n")
-      
-      git_output_val(paste(git_output_val(), "\n错误:", e$message, "\n", paste(rep("=", 50), collapse = ""), "\n", "执行失败！\n"))
       
       showNotification("执行失败", type = "error")
     })
