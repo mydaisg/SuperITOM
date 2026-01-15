@@ -135,17 +135,19 @@ ui <- function(req) {
         }
         
         .main-skin .sidebar-menu > li > a {
-          color: #b8c7ce;
+          color: #ffffff;
+          font-weight: 500;
         }
         
         .main-skin .sidebar-menu > li > a:hover {
           background: #1e2b37;
-          color: #fff;
+          color: #ffffff;
         }
         
         .main-skin .sidebar-menu > li.active > a {
           background: #667eea;
-          color: #fff;
+          color: #ffffff;
+          font-weight: 600;
         }
         
         .box.box-primary {

@@ -1,3 +1,4 @@
+library(shiny)
 library(shinyjs)
 
 authUI <- function(id) {
@@ -43,7 +44,7 @@ authUI <- function(id) {
   )
 }
 
-authServer <- function(id, session) {
+authServer <- function(id) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
     

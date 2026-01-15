@@ -28,7 +28,7 @@ server <- function(input, output, session) {
   
   outputOptions(output, "logged_in", suspendWhenHidden = FALSE)
   
-  auth_result <- authServer("login", session)
+  auth_result <- authServer("login")
   
   observe({
     if (auth_result$is_logged_in()) {
