@@ -170,41 +170,28 @@ server <- function(input, output, session) {
     
     writeLines(log_content, log_file)
     
-    git_output(paste(log_content, collapse = "\n"))
-    git_output("\n")
+    output_lines <- c(log_content, "")
     
     tryCatch({
       result <- system(cmd, intern = TRUE, ignore.stderr = FALSE)
       result_text <- paste(result, collapse = "\n")
       
-      git_output(result_text)
+      output_lines <- c(output_lines, result_text, "", paste(rep("=", 50), collapse = ""), "执行完成！")
       
-      append_content <- c(
-        "",
-        result_text,
-        "",
-        paste(rep("=", 50), collapse = ""),
-        "执行完成！"
-      )
+      cat(result_text, "\n", paste(rep("=", 50), collapse = ""), "\n执行完成！\n", file = log_file, append = TRUE)
       
-      cat(append_content, sep = "\n", file = log_file, append = TRUE)
-      
-      git_output(paste("\n", paste(rep("=", 50), collapse = ""), "\n", "执行完成！\n"))
+      git_output(paste(output_lines, collapse = "\n"))
       
       showNotification(paste("日志已保存:", log_file), type = "message")
       
     }, error = function(e) {
-      error_content <- c(
-        "",
-        paste("错误:", e$message),
-        "",
-        paste(rep("=", 50), collapse = ""),
-        "执行失败！"
-      )
+      error_lines <- c("", paste("错误:", e$message), "", paste(rep("=", 50), collapse = ""), "执行失败！")
       
-      cat(error_content, sep = "\n", file = log_file, append = TRUE)
+      output_lines <- c(output_lines, error_lines)
       
-      git_output(paste("\n错误:", e$message, "\n", paste(rep("=", 50), collapse = ""), "\n", "执行失败！\n"))
+      cat("\n", paste("错误:", e$message), "\n", paste(rep("=", 50), collapse = ""), "\n执行失败！\n", file = log_file, append = TRUE)
+      
+      git_output(paste(output_lines, collapse = "\n"))
       
       showNotification("执行失败", type = "error")
     })
