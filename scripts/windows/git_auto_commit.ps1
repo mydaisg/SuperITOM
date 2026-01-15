@@ -55,7 +55,7 @@ function Format-CommitMessage {
     }
     
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    $message = "Auto commit: $timestamp"
+    $message = "Web commit: $timestamp"
     
     if ($Changes.Modified.Count -gt 0) {
         $message += "`nModified: $($Changes.Modified.Count) file(s)"
