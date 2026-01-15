@@ -1,0 +1,48 @@
+执行时间: 2026-01-15 20:44:30.759803
+命令: pwsh -File "D:/GitHub/SuperITOM/scripts/windows/git_auto_commit.ps1" -CommitMessage "Auto commit: 2026-01-15 20:43:16" -Branch "main"
+
+[2026-01-15 20:44:23] [INFO] === Git Auto Commit and Push ===
+[2026-01-15 20:44:23] [INFO] Repository: D:\GitHub\SuperITOM
+[2026-01-15 20:44:23] [INFO] Branch: main
+[2026-01-15 20:44:23] [INFO] Current branch: main
+[2026-01-15 20:44:23] [INFO] Changes detected:
+[2026-01-15 20:44:23] [INFO]   Untracked: 2 file(s)
+[2026-01-15 20:44:23] [INFO]     - app.R
+[2026-01-15 20:44:23] [INFO]     - tests/
+[2026-01-15 20:44:23] [INFO] Adding all changes...
+[2026-01-15 20:44:23] [INFO] Committing with message: Auto commit: 2026-01-15 20:43:16
+[main 03e69e4] Auto commit: 2026-01-15 20:43:16
+ Committer: unknown <daishigong@lvcc.org>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 20 files changed, 438 insertions(+), 5 deletions(-)
+ create mode 100644 app.R
+ rename app_simple.R => tests/app_simple.R (100%)
+ rename auth_module.R => tests/auth_module.R (98%)
+ rename auth_module_simple.R => tests/auth_module_simple.R (100%)
+ rename batch_operations_module.R => tests/batch_operations_module.R (100%)
+ rename final_app.R => tests/final_app.R (100%)
+ rename global_simple.R => tests/global_simple.R (100%)
+ rename host_status_module.R => tests/host_status_module.R (100%)
+ rename operation_records_module.R => tests/operation_records_module.R (100%)
+ rename script_execution_module.R => tests/script_execution_module.R (100%)
+ create mode 100644 tests/script_management_module.R
+ rename server_simple.R => tests/server_simple.R (100%)
+ rename system_info_module.R => tests/system_info_module.R (100%)
+ rename test_app.R => tests/test_app.R (100%)
+ create mode 100644 tests/test_auth_module.R
+ rename test_dashboard.R => tests/test_dashboard.R (100%)
+ create mode 100644 tests/test_login_simple.R
+ rename ui_simple.R => tests/ui_simple.R (100%)
+[2026-01-15 20:44:24] [INFO] Pushing to origin/main...
+[2026-01-15 20:44:30] [INFO] === Successfully committed and pushed ===
