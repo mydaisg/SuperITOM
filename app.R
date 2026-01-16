@@ -3,6 +3,7 @@ library(shinydashboard)
 library(shinythemes)
 library(DBI)
 library(RSQLite)
+library(DT)
 
 db_path <- "D:/GitHub/SuperITOM/db/GH_ITOM.db"
 
@@ -67,6 +68,7 @@ dashboard_ui <- function() {
         menuItem("Git提交", tabName = "git_commit", icon = icon("upload")),
         menuItem("LocalDir", tabName = "script_management", icon = icon("folder-plus")),
         menuItem("FirstWin", tabName = "firstwin", icon = icon("desktop")),
+        menuItem("LocalInit", tabName = "local_init", icon = icon("laptop")),
         menuItem("系统信息", tabName = "system_info", icon = icon("server")),
         menuItem("操作记录", tabName = "operation_history", icon = icon("history")),
         menuItem("设置", tabName = "settings", icon = icon("cog"))
@@ -182,9 +184,31 @@ dashboard_ui <- function() {
                             placeholder = "输入主机列表文件路径")
                 ),
                 column(6,
+                  actionButton("load_hosts", "加载主机列表", 
+                             icon = icon("refresh"),
+                             class = "btn-info")
+                )
+              ),
+              
+              hr(),
+              
+              fluidRow(
+                column(12,
+                  h4("主机列表（可编辑）"),
+                  DT::dataTableOutput("hosts_table")
+                )
+              ),
+              
+              hr(),
+              
+              fluidRow(
+                column(6,
                   textInput("target_ip", "目标IP:", 
                             value = "",
                             placeholder = "输入目标IP（单机模式）")
+                ),
+                column(6,
+                  checkboxInput("batch_mode", "批量模式（使用主机列表）", value = TRUE)
                 )
               ),
               
@@ -213,7 +237,9 @@ dashboard_ui <- function() {
                             placeholder = "输入本地工具路径")
                 ),
                 column(6,
-                  checkboxInput("batch_mode", "批量模式（使用主机列表）", value = TRUE)
+                  actionButton("save_hosts", "保存主机列表", 
+                             icon = icon("save"),
+                             class = "btn-success")
                 )
               ),
               
@@ -241,6 +267,186 @@ dashboard_ui <- function() {
               solidHeader = TRUE,
               width = 12,
               verbatimTextOutput("firstwin_output")
+            )
+          )
+        ),
+        
+        tabItem(tabName = "firstwin",
+          fluidRow(
+            box(
+              title = "FirstWin - 远程Windows客户端管理",
+              status = "primary",
+              solidHeader = TRUE,
+              width = 12,
+              
+              fluidRow(
+                column(6,
+                  textInput("hosts_file", "主机列表文件:", 
+                            value = "D:/GitHub/SuperITOM/config/hosts_new.csv",
+                            placeholder = "输入主机列表文件路径")
+                ),
+                column(6,
+                  actionButton("load_hosts", "加载主机列表", 
+                             icon = icon("refresh"),
+                             class = "btn-info")
+                )
+              ),
+              
+              hr(),
+              
+              fluidRow(
+                column(12,
+                  h4("主机列表（可编辑）"),
+                  DT::dataTableOutput("hosts_table")
+                )
+              ),
+              
+              hr(),
+              
+              fluidRow(
+                column(6,
+                  textInput("target_ip", "目标IP:", 
+                            value = "",
+                            placeholder = "输入目标IP（单机模式）")
+                ),
+                column(6,
+                  checkboxInput("batch_mode", "批量模式（使用主机列表）", value = TRUE)
+                )
+              ),
+              
+              fluidRow(
+                column(4,
+                  textInput("target_user", "用户名:", 
+                            value = "",
+                            placeholder = "输入用户名（单机模式）")
+                ),
+                column(4,
+                  passwordInput("target_password", "密码:", 
+                              value = "",
+                              placeholder = "输入密码（单机模式）")
+                ),
+                column(4,
+                  textInput("new_computer_name", "新计算机名:", 
+                            value = "",
+                            placeholder = "输入新计算机名（可选）")
+                )
+              ),
+              
+              fluidRow(
+                column(6,
+                  textInput("tools_path", "工具路径:", 
+                            value = "D:/GitHub/SuperITOM/tools",
+                            placeholder = "输入本地工具路径")
+                ),
+                column(6,
+                  actionButton("save_hosts", "保存主机列表", 
+                             icon = icon("save"),
+                             class = "btn-success")
+                )
+              ),
+              
+              fluidRow(
+                column(6,
+                  actionButton("firstwin_test", "测试连接", 
+                             icon = icon("plug"),
+                             class = "btn-info btn-lg",
+                             style = "width: 100%;")
+                ),
+                column(6,
+                  actionButton("firstwin_execute", "执行管理", 
+                             icon = icon("cogs"),
+                             class = "btn-primary btn-lg",
+                             style = "width: 100%;")
+                )
+              )
+            )
+          ),
+          
+          fluidRow(
+            box(
+              title = "执行过程和结果",
+              status = "info",
+              solidHeader = TRUE,
+              width = 12,
+              verbatimTextOutput("firstwin_output")
+            )
+          )
+        ),
+        
+        tabItem(tabName = "local_init",
+          fluidRow(
+            box(
+              title = "LocalInit - 本地初始化脚本管理",
+              status = "primary",
+              solidHeader = TRUE,
+              width = 12,
+              
+              h4("本地初始化脚本部署说明", align = "center"),
+              p("此脚本用于在客户端本地执行，完成以下操作：", align = "center"),
+              tags$ul(
+                tags$li("关闭Windows防火墙"),
+                tags$li("启用WinRM远程管理"),
+                tags$li("部署SysinternalsSuite到C:\\windows\\system32"),
+                tags$li("部署PuTTY工具到C:\\windows\\system32")
+              ),
+              hr(),
+              
+              fluidRow(
+                column(6,
+                  textInput("local_tools_path", "本地Tools路径:", 
+                            value = "D:/GitHub/SuperITOM/Tools",
+                            placeholder = "输入本地Tools目录路径")
+                ),
+                column(6,
+                  textInput("remote_tools_path", "客户端Tools路径:", 
+                            value = "C:\\Tools",
+                            placeholder = "输入客户端上的Tools路径")
+                )
+              ),
+              
+              hr(),
+              
+              fluidRow(
+                column(12,
+                  h5("部署步骤：", align = "center"),
+                  tags$ol(
+                    tags$li("1. 将整个Tools目录（包含SysinternalsSuite和PuTTY）复制到客户端的C:\\Tools"),
+                    tags$li("2. 在客户端上双击运行0_LocalFirst.ps1脚本"),
+                    tags$li("3. 脚本会自动："),
+                    tags$ul(
+                      tags$li("关闭Windows防火墙"),
+                      tags$li("启用WinRM远程管理"),
+                      tags$li("部署SysinternalsSuite到C:\\windows\\system32"),
+                      tags$li("部署PuTTY工具到C:\\windows\\system32"),
+                      tags$li("显示系统信息"),
+                      tags$li("提示重启计算机以应用所有更改")
+                    )
+                  )
+                )
+              ),
+              
+              hr(),
+              
+              fluidRow(
+                column(12,
+                  h5("注意事项：", align = "center"),
+                  tags$ul(
+                    tags$li("脚本必须在客户端本地运行，不能通过远程方式执行"),
+                    tags$li("执行前请确保Tools目录已复制到客户端"),
+                    tags$li("执行后需要重启计算机以应用所有更改"),
+                    tags$li("请确保有管理员权限运行脚本")
+                  )
+                )
+              ),
+              
+              hr(),
+              
+              fluidRow(
+                column(12,
+                  h4("脚本位置：", align = "center"),
+                  p("D:\\GitHub\\SuperITOM\\Tools\\0_LocalFirst.ps1", align = "center", style = "font-family: monospace; font-size: 14px; color: #007bff;")
+                )
+              )
             )
           )
         ),
@@ -311,6 +517,13 @@ server <- function(input, output, session) {
   localdir_output_val <- reactiveVal("")
   firstwin_output_val <- reactiveVal("")
   settings_output_val <- reactiveVal("")
+  
+  hosts_data <- reactiveVal(data.frame(
+    IPAddress = character(),
+    User = character(),
+    Password = character(),
+    stringsAsFactors = FALSE
+  ))
   
   output$app_ui <- renderUI({
     if (logged_in()) {
@@ -574,6 +787,77 @@ server <- function(input, output, session) {
   
   output$firstwin_output <- renderPrint({
     cat(firstwin_output_val())
+  })
+  
+  output$hosts_table <- DT::renderDataTable({
+    DT::datatable(
+      hosts_data(),
+      selection = 'single',
+      editable = TRUE,
+      options = list(
+        pageLength = 10,
+        lengthMenu = c(5, 10, 25, 50),
+        searching = TRUE,
+        ordering = TRUE
+      ),
+      rownames = FALSE
+    )
+  })
+  
+  observeEvent(input$load_hosts, {
+    hosts_file <- input$hosts_file
+    
+    if (!file.exists(hosts_file)) {
+      showNotification("主机列表文件不存在", type = "error")
+      return()
+    }
+    
+    tryCatch({
+      hosts <- read.csv(hosts_file, stringsAsFactors = FALSE, header = TRUE, 
+                    sep = ",", quote = "\"", na.strings = "")
+      
+      if (nrow(hosts) == 0) {
+        showNotification("主机列表文件为空", type = "warning")
+        return()
+      }
+      
+      hosts_data(hosts)
+      showNotification(sprintf("成功加载 %d 台主机", nrow(hosts)), type = "message")
+      
+    }, error = function(e) {
+      showNotification(paste("加载主机列表失败:", e$message), type = "error")
+    })
+  })
+  
+  observeEvent(input$save_hosts, {
+    hosts_file <- input$hosts_file
+    
+    if (nrow(hosts_data()) == 0) {
+      showNotification("没有主机数据可保存", type = "warning")
+      return()
+    }
+    
+    tryCatch({
+      write.csv(hosts_data(), hosts_file, row.names = FALSE)
+      showNotification(paste("主机列表已保存到:", hosts_file), type = "message")
+      
+    }, error = function(e) {
+      showNotification(paste("保存主机列表失败:", e$message), type = "error")
+    })
+  })
+  
+  observeEvent(input$hosts_table_rows_selected, {
+    selected_row <- input$hosts_table_rows_selected
+    
+    if (length(selected_row) > 0 && nrow(hosts_data()) >= selected_row) {
+      host <- hosts_data()[selected_row, ]
+      
+      updateTextInput(session, "target_ip", value = host$IPAddress)
+      updateTextInput(session, "target_user", value = host$User)
+      updateTextInput(session, "target_password", value = host$Password)
+      
+      showNotification(sprintf("已选择主机: %s", host$IPAddress), type = "message")
+    }
   })
   
   observeEvent(input$firstwin_test, {

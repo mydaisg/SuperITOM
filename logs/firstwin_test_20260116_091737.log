@@ -1,0 +1,18 @@
+执行时间: 2026-01-16 09:17:37.83632
+命令: pwsh -File "D:/GitHub/SuperITOM/scripts/common/0_Remote_WT_TEST.ps1" -HostsFile "D:/GitHub/SuperITOM/config/hosts_new.csv"
+模式: 批量模式
+
+执行过程和结果:
+==================================================
+
+[2026-01-16 09:17:38] [INFO] === Starting Remote Windows Client Test ===
+[2026-01-16 09:17:38] [INFO] Reading hosts from: D:/GitHub/SuperITOM/config/hosts_new.csv
+[31;1mWriteError: [0mD:\GitHub\SuperITOM\scripts\common\0_Remote_WT_TEST.ps1:106:14[0m
+[31;1m[0m[36;1mLine |[0m
+[31;1m[0m[36;1m[36;1m 106 | [0m     foreach ([36;1m$host[0m in $hosts) {[0m
+[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m              ~~~~~[0m
+[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mCannot overwrite variable Host because it is read-only or[0m
+[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m[31;1m[36;1m     | [31;1mconstant.[0m
+
+==================================================
+测试完成！

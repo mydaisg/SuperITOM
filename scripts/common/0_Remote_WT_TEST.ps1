@@ -49,6 +49,56 @@ function Test-WinRMConnection {
     }
 }
 
+function Test-WinRMService {
+    param([string]$ComputerName)
+    
+    try {
+        Write-Log "Checking WinRM service on $ComputerName"
+        
+        $sessionOption = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
+        
+        $serviceStatus = Invoke-Command -ComputerName $ComputerName -SessionOption $sessionOption -ScriptBlock {
+            Get-Service WinRM | Select-Object Status, StartType
+        } -ErrorAction SilentlyContinue
+        
+        if ($serviceStatus) {
+            Write-Log "WinRM Service Status: $($serviceStatus.Status), StartType: $($serviceStatus.StartType)"
+            return $true
+        } else {
+            Write-Log "Could not retrieve WinRM service status" "WARN"
+            return $false
+        }
+    } catch {
+        Write-Log "Failed to check WinRM service: $_" "WARN"
+        return $false
+    }
+}
+
+function Test-WinRMListener {
+    param([string]$ComputerName)
+    
+    try {
+        Write-Log "Checking WinRM listener on $ComputerName"
+        
+        $sessionOption = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
+        
+        $listener = Invoke-Command -ComputerName $ComputerName -SessionOption $sessionOption -ScriptBlock {
+            Get-ChildItem WSMan:\localhost\Listener -ErrorAction SilentlyContinue | Select-Object Name, Enabled
+        } -ErrorAction SilentlyContinue
+        
+        if ($listener) {
+            Write-Log "WinRM Listeners: $($listener.Name -join ', '), Enabled: $($listener.Enabled -join ', ')"
+            return $true
+        } else {
+            Write-Log "No WinRM listeners found" "WARN"
+            return $false
+        }
+    } catch {
+        Write-Log "Failed to check WinRM listeners: $_" "WARN"
+        return $false
+    }
+}
+
 function Test-Ping {
     param([string]$ComputerName)
     
@@ -109,6 +159,11 @@ if ($TargetIP -and $TargetUser -and $TargetPassword) {
         $pingResult = Test-Ping -ComputerName $host.IPAddress
         
         if ($pingResult) {
+            Write-Log "Ping successful, checking WinRM configuration..."
+            
+            $serviceResult = Test-WinRMService -ComputerName $host.IPAddress
+            $listenerResult = Test-WinRMListener -ComputerName $host.IPAddress
+            
             $winrmResult = Test-WinRMConnection -ComputerName $host.IPAddress -Username $host.User -Password $host.Password
             
             if ($winrmResult) {
@@ -117,6 +172,8 @@ if ($TargetIP -and $TargetUser -and $TargetPassword) {
             } else {
                 $failCount++
                 Write-Log "Host $($host.IPAddress): FAILED (WinRM)" "ERROR"
+                Write-Log "  - Service Check: $(if ($serviceResult) { 'PASSED' } else { 'FAILED' })"
+                Write-Log "  - Listener Check: $(if ($listenerResult) { 'PASSED' } else { 'FAILED' })"
             }
         } else {
             $failCount++

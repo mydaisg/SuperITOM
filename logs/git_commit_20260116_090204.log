@@ -3,3 +3,197 @@
 
 执行过程和结果:
 ==================================================
+
+[2026-01-16 09:02:05] [INFO] === Git Auto Commit and Push ===
+[2026-01-16 09:02:05] [INFO] Repository: D:\GitHub\SuperITOM
+[2026-01-16 09:02:05] [INFO] Branch: main
+[2026-01-16 09:02:05] [INFO] Current branch: main
+[2026-01-16 09:02:05] [INFO] Changes detected:
+[2026-01-16 09:02:05] [INFO]   Untracked: 4 file(s)
+[2026-01-16 09:02:05] [INFO]     - config/hosts_new.csv
+[2026-01-16 09:02:05] [INFO]     - logs/git_commit_20260116_090204.log
+[2026-01-16 09:02:05] [INFO]     - scripts/common/
+[2026-01-16 09:02:05] [INFO]     - tools/
+[2026-01-16 09:02:05] [INFO] Adding all changes...
+[2026-01-16 09:02:09] [INFO] Committing with message: Auto commit: 2026-01-16 08:59:33
+[main 3993b16] Auto commit: 2026-01-16 08:59:33
+ Committer: unknown <daishigong@lvcc.org>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 164 files changed, 1104 insertions(+)
+ create mode 100644 config/hosts_new.csv
+ create mode 100644 logs/git_commit_20260116_090204.log
+ create mode 100644 scripts/common/0_Remote_WT.ps1
+ create mode 100644 scripts/common/0_Remote_WT_TEST.ps1
+ create mode 100644 tools/PuTTY/LICENCE
+ create mode 100644 tools/PuTTY/README.txt
+ create mode 100644 tools/PuTTY/pageant.exe
+ create mode 100644 tools/PuTTY/plink.exe
+ create mode 100644 tools/PuTTY/pscp.exe
+ create mode 100644 tools/PuTTY/psftp.exe
+ create mode 100644 tools/PuTTY/putty.chm
+ create mode 100644 tools/PuTTY/putty.exe
+ create mode 100644 tools/PuTTY/puttygen.exe
+ create mode 100644 tools/SysinternalsSuite/ADExplorer.exe
+ create mode 100644 tools/SysinternalsSuite/ADInsight.chm
+ create mode 100644 tools/SysinternalsSuite/ADInsight.exe
+ create mode 100644 tools/SysinternalsSuite/AccessEnum.exe
+ create mode 100644 tools/SysinternalsSuite/AdExplorer.chm
+ create mode 100644 tools/SysinternalsSuite/Autologon.exe
+ create mode 100644 tools/SysinternalsSuite/Autoruns.exe
+ create mode 100644 tools/SysinternalsSuite/Autoruns64.dll
+ create mode 100644 tools/SysinternalsSuite/Autoruns64.exe
+ create mode 100644 tools/SysinternalsSuite/Bginfo.exe
+ create mode 100644 tools/SysinternalsSuite/Bginfo64.exe
+ create mode 100644 tools/SysinternalsSuite/Cacheset.exe
+ create mode 100644 tools/SysinternalsSuite/Clockres.exe
+ create mode 100644 tools/SysinternalsSuite/Clockres64.exe
+ create mode 100644 tools/SysinternalsSuite/Contig.exe
+ create mode 100644 tools/SysinternalsSuite/Contig64.exe
+ create mode 100644 tools/SysinternalsSuite/Coreinfo.exe
+ create mode 100644 tools/SysinternalsSuite/DISKMON.HLP
+ create mode 100644 tools/SysinternalsSuite/DMON.SYS
+ create mode 100644 tools/SysinternalsSuite/Dbgview.chm
+ create mode 100644 tools/SysinternalsSuite/Dbgview.exe
+ create mode 100644 tools/SysinternalsSuite/Desktops.exe
+ create mode 100644 tools/SysinternalsSuite/Disk2vhd.chm
+ create mode 100644 tools/SysinternalsSuite/DiskView.exe
+ create mode 100644 tools/SysinternalsSuite/Diskmon.exe
+ create mode 100644 tools/SysinternalsSuite/Eula.txt
+ create mode 100644 tools/SysinternalsSuite/FindLinks.exe
+ create mode 100644 tools/SysinternalsSuite/FindLinks64.exe
+ create mode 100644 tools/SysinternalsSuite/Listdlls.exe
+ create mode 100644 tools/SysinternalsSuite/Listdlls64.exe
+ create mode 100644 tools/SysinternalsSuite/LoadOrd.exe
+ create mode 100644 tools/SysinternalsSuite/LoadOrd64.exe
+ create mode 100644 tools/SysinternalsSuite/LoadOrdC.exe
+ create mode 100644 tools/SysinternalsSuite/LoadOrdC64.exe
+ create mode 100644 tools/SysinternalsSuite/PORTMON.CNT
+ create mode 100644 tools/SysinternalsSuite/PORTMON.HLP
+ create mode 100644 tools/SysinternalsSuite/Procmon.exe
+ create mode 100644 tools/SysinternalsSuite/PsExec.exe
+ create mode 100644 tools/SysinternalsSuite/PsExec64.exe
+ create mode 100644 tools/SysinternalsSuite/PsGetsid.exe
+ create mode 100644 tools/SysinternalsSuite/PsGetsid64.exe
+ create mode 100644 tools/SysinternalsSuite/PsInfo.exe
+ create mode 100644 tools/SysinternalsSuite/PsInfo64.exe
+ create mode 100644 tools/SysinternalsSuite/PsLoggedon.exe
+ create mode 100644 tools/SysinternalsSuite/PsLoggedon64.exe
+ create mode 100644 tools/SysinternalsSuite/PsService.exe
+ create mode 100644 tools/SysinternalsSuite/PsService64.exe
+ create mode 100644 tools/SysinternalsSuite/Pstools.chm
+ create mode 100644 tools/SysinternalsSuite/RAMMap.exe
+ create mode 100644 tools/SysinternalsSuite/RegDelNull.exe
+ create mode 100644 tools/SysinternalsSuite/RegDelNull64.exe
+ create mode 100644 tools/SysinternalsSuite/ShareEnum.exe
+ create mode 100644 tools/SysinternalsSuite/ShellRunas.exe
+ create mode 100644 tools/SysinternalsSuite/Sysmon.exe
+ create mode 100644 tools/SysinternalsSuite/Sysmon64.exe
+ create mode 100644 tools/SysinternalsSuite/TCPVIEW.HLP
+ create mode 100644 tools/SysinternalsSuite/Tcpvcon.exe
+ create mode 100644 tools/SysinternalsSuite/Tcpview.exe
+ create mode 100644 tools/SysinternalsSuite/Testlimit.exe
+ create mode 100644 tools/SysinternalsSuite/Testlimit64.exe
+ create mode 100644 tools/SysinternalsSuite/Vmmap.chm
+ create mode 100644 tools/SysinternalsSuite/Volumeid.exe
+ create mode 100644 tools/SysinternalsSuite/Volumeid64.exe
+ create mode 100644 tools/SysinternalsSuite/WINOBJ.HLP
+ create mode 100644 tools/SysinternalsSuite/Winobj.exe
+ create mode 100644 tools/SysinternalsSuite/ZoomIt.exe
+ create mode 100644 tools/SysinternalsSuite/accesschk.exe
+ create mode 100644 tools/SysinternalsSuite/accesschk64.exe
+ create mode 100644 tools/SysinternalsSuite/adrestore.exe
+ create mode 100644 tools/SysinternalsSuite/autoruns.chm
+ create mode 100644 tools/SysinternalsSuite/autorunsc.exe
+ create mode 100644 tools/SysinternalsSuite/autorunsc64.exe
+ create mode 100644 tools/SysinternalsSuite/ctrl2cap.amd.sys
+ create mode 100644 tools/SysinternalsSuite/ctrl2cap.exe
+ create mode 100644 tools/SysinternalsSuite/ctrl2cap.nt4.sys
+ create mode 100644 tools/SysinternalsSuite/ctrl2cap.nt5.sys
+ create mode 100644 tools/SysinternalsSuite/disk2vhd.exe
+ create mode 100644 tools/SysinternalsSuite/diskext.exe
+ create mode 100644 tools/SysinternalsSuite/diskext64.exe
+ create mode 100644 tools/SysinternalsSuite/du.exe
+ create mode 100644 tools/SysinternalsSuite/du64.exe
+ create mode 100644 tools/SysinternalsSuite/efsdump.exe
+ create mode 100644 tools/SysinternalsSuite/handle.exe
+ create mode 100644 tools/SysinternalsSuite/handle64.exe
+ create mode 100644 tools/SysinternalsSuite/hex2dec.exe
+ create mode 100644 tools/SysinternalsSuite/hex2dec64.exe
+ create mode 100644 tools/SysinternalsSuite/junction.exe
+ create mode 100644 tools/SysinternalsSuite/junction64.exe
+ create mode 100644 tools/SysinternalsSuite/ldmdump.exe
+ create mode 100644 tools/SysinternalsSuite/livekd.exe
+ create mode 100644 tools/SysinternalsSuite/livekd64.exe
+ create mode 100644 tools/SysinternalsSuite/logonsessions.exe
+ create mode 100644 tools/SysinternalsSuite/logonsessions64.exe
+ create mode 100644 tools/SysinternalsSuite/movefile.exe
+ create mode 100644 tools/SysinternalsSuite/movefile64.exe
+ create mode 100644 tools/SysinternalsSuite/notmyfault.exe
+ create mode 100644 tools/SysinternalsSuite/notmyfault64.exe
+ create mode 100644 tools/SysinternalsSuite/notmyfaultc.exe
+ create mode 100644 tools/SysinternalsSuite/notmyfaultc64.exe
+ create mode 100644 tools/SysinternalsSuite/ntfsinfo.exe
+ create mode 100644 tools/SysinternalsSuite/ntfsinfo64.exe
+ create mode 100644 tools/SysinternalsSuite/pagedfrg.exe
+ create mode 100644 tools/SysinternalsSuite/pagedfrg.hlp
+ create mode 100644 tools/SysinternalsSuite/pendmoves.exe
+ create mode 100644 tools/SysinternalsSuite/pendmoves64.exe
+ create mode 100644 tools/SysinternalsSuite/pipelist.exe
+ create mode 100644 tools/SysinternalsSuite/pipelist64.exe
+ create mode 100644 tools/SysinternalsSuite/portmon.exe
+ create mode 100644 tools/SysinternalsSuite/procdump.exe
+ create mode 100644 tools/SysinternalsSuite/procdump64.exe
+ create mode 100644 tools/SysinternalsSuite/procexp.chm
+ create mode 100644 tools/SysinternalsSuite/procexp.exe
+ create mode 100644 tools/SysinternalsSuite/procexp64.exe
+ create mode 100644 tools/SysinternalsSuite/procmon.chm
+ create mode 100644 tools/SysinternalsSuite/psfile.exe
+ create mode 100644 tools/SysinternalsSuite/psfile64.exe
+ create mode 100644 tools/SysinternalsSuite/pskill.exe
+ create mode 100644 tools/SysinternalsSuite/pskill64.exe
+ create mode 100644 tools/SysinternalsSuite/pslist.exe
+ create mode 100644 tools/SysinternalsSuite/pslist64.exe
+ create mode 100644 tools/SysinternalsSuite/psloglist.exe
+ create mode 100644 tools/SysinternalsSuite/psloglist64.exe
+ create mode 100644 tools/SysinternalsSuite/pspasswd.exe
+ create mode 100644 tools/SysinternalsSuite/pspasswd64.exe
+ create mode 100644 tools/SysinternalsSuite/psping.exe
+ create mode 100644 tools/SysinternalsSuite/psping64.exe
+ create mode 100644 tools/SysinternalsSuite/psshutdown.exe
+ create mode 100644 tools/SysinternalsSuite/pssuspend.exe
+ create mode 100644 tools/SysinternalsSuite/pssuspend64.exe
+ create mode 100644 tools/SysinternalsSuite/psversion.txt
+ create mode 100644 tools/SysinternalsSuite/readme.txt
+ create mode 100644 tools/SysinternalsSuite/regjump.exe
+ create mode 100644 tools/SysinternalsSuite/ru.exe
+ create mode 100644 tools/SysinternalsSuite/ru64.exe
+ create mode 100644 tools/SysinternalsSuite/sdelete.exe
+ create mode 100644 tools/SysinternalsSuite/sdelete64.exe
+ create mode 100644 tools/SysinternalsSuite/sigcheck.exe
+ create mode 100644 tools/SysinternalsSuite/sigcheck64.exe
+ create mode 100644 tools/SysinternalsSuite/streams.exe
+ create mode 100644 tools/SysinternalsSuite/streams64.exe
+ create mode 100644 tools/SysinternalsSuite/strings.exe
+ create mode 100644 tools/SysinternalsSuite/strings64.exe
+ create mode 100644 tools/SysinternalsSuite/sync.exe
+ create mode 100644 tools/SysinternalsSuite/sync64.exe
+ create mode 100644 tools/SysinternalsSuite/tcpview.chm
+ create mode 100644 tools/SysinternalsSuite/vmmap.exe
+ create mode 100644 tools/SysinternalsSuite/whois.exe
+ create mode 100644 tools/SysinternalsSuite/whois64.exe
+[2026-01-16 09:02:10] [INFO] Pushing to origin/main...
+[2026-01-16 09:02:16] [INFO] === Successfully committed and pushed ===
+
+==================================================
+执行完成！
