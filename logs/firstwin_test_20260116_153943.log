@@ -1,0 +1,12 @@
+执行时间: 2026-01-16 15:39:43.158799
+命令: pwsh -File "D:/GitHub/SuperITOM/scripts/common/0_Remote_WT_TEST.ps1" -TargetIP "10.0.128.16" -TargetUser "Tai" -TargetPassword "falwpa"
+
+执行过程和结果:
+==================================================
+
+[2026-01-16 15:39:43] [INFO] === Starting Remote Windows Client Test ===
+[2026-01-16 15:39:43] [INFO] Testing single target: 10.0.128.16
+[2026-01-16 15:39:48] [INFO] === Test Completed Successfully ===
+
+==================================================
+测试完成！

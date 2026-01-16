@@ -1,0 +1,23 @@
+执行时间: 2026-01-16 11:56:17.171758
+命令: pwsh -File "D:/GitHub/SuperITOM/scripts/common/0_Remote_WT_TEST.ps1" -HostsFile "D:/GitHub/SuperITOM/config/hosts_new.csv"
+模式: 批量模式
+
+执行过程和结果:
+==================================================
+
+[2026-01-16 11:56:18] [INFO] === Starting Remote Windows Client Test ===
+[2026-01-16 11:56:18] [INFO] Reading hosts from: D:/GitHub/SuperITOM/config/hosts_new.csv
+[2026-01-16 11:56:18] [INFO] Testing host: 10.0.128.16
+[2026-01-16 11:56:19] [INFO] Ping successful, checking WinRM configuration...
+[2026-01-16 11:56:19] [INFO]   - Service Check: PASSED
+[2026-01-16 11:56:19] [INFO]   - Listener Check: PASSED
+[2026-01-16 11:56:21] [INFO] Host 10.0.128.16: SUCCESS
+[2026-01-16 11:56:21] [INFO] 
+[2026-01-16 11:56:21] [INFO] === Test Summary ===
+[2026-01-16 11:56:21] [INFO] Total hosts: 1
+[2026-01-16 11:56:21] [INFO] Successful: 1
+[2026-01-16 11:56:21] [INFO] Failed: 0
+[2026-01-16 11:56:21] [INFO] === All Tests Completed Successfully ===
+
+==================================================
+测试完成！

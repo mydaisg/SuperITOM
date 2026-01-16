@@ -1,0 +1,28 @@
+执行时间: 2026-01-16 15:46:18.916669
+命令: pwsh -File "D:/GitHub/SuperITOM/scripts/common/0_Remote_WT_TEST.ps1" -TargetIP "10.0.128.16" -TargetUser "Tai" -TargetPassword "falwpa"
+
+执行过程和结果:
+==================================================
+
+[2026-01-16 15:46:19] [INFO] === Starting Remote Windows Client Test ===
+[2026-01-16 15:46:19] [INFO] Testing single target: 10.0.128.16
+ping 10.0.128.16
+
+正在 Ping 10.0.128.16 具有 32 字节的数据:
+来自 10.0.128.16 的回复: 字节=32 时间=<1ms TTL=
+来自 10.0.128.16 的回复: 字节=32 时间=<1ms TTL=
+来自 10.0.128.16 的回复: 字节=32 时间=<1ms TTL=
+来自 10.0.128.16 的回复: 字节=32 时间=<1ms TTL=
+
+10.0.128.16 的 Ping 统计信息:
+    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 0ms，最长 = 0ms，平均 = 0ms
+
+[2026-01-16 15:46:22] [INFO] Ping successful, checking WinRM configuration...
+[2026-01-16 15:46:22] [INFO]   - Service Check: PASSED
+[2026-01-16 15:46:22] [INFO]   - Listener Check: PASSED
+[2026-01-16 15:46:24] [INFO] === Test Completed Successfully ===
+
+==================================================
+测试完成！
