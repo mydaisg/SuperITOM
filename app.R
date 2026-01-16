@@ -32,14 +32,17 @@ update_user_last_login <- function(user_id) {
 
 login_ui <- function() {
   fluidPage(
-    titlePanel("ITOM 管理控制台 - 用户登录"),
+    tags$div(
+      style = "text-align: center;",
+      titlePanel("ITOM 管理控制台", windowTitle = "ITOM 管理控制台")
+    ),
     
     mainPanel(
       width = 12,
       fluidRow(
         column(4, offset = 4,
           wellPanel(
-            h3("用户登录", align = "center"),
+            h3("管理员登录", align = "center"),
             br(),
             textInput("username", "用户名:", placeholder = "admin"),
             passwordInput("password", "密码:", placeholder = "admin123"),
@@ -49,7 +52,7 @@ login_ui <- function() {
                        class = "btn-primary btn-lg",
                        style = "width: 100%;"),
             br(), br(),
-            verbatimTextOutput("login_message")
+            textOutput("login_message")
           )
         )
       )
@@ -347,7 +350,7 @@ server <- function(input, output, session) {
     }
   })
   
-  output$login_message <- renderPrint({
+  output$login_message <- renderText({
     login_message_val()
   })
   
