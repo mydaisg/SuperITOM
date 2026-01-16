@@ -4,6 +4,9 @@ library(DBI)
 library(RSQLite)
 library(DT)
 
+source("db/read_db.r")
+source("db/write_db.r")
+
 db_path <- "D:\\GitHub\\SuperITOM\\db\\GH_ITOM.db"
 
 get_db_connection <- function() {
@@ -60,10 +63,12 @@ login_ui <- function() {
   )
 }
 
-dashboard_ui <- function() {
+dashboard_ui <- function(user = NULL) {
   scripts_dir <- "D:/GitHub/SuperITOM/scripts/windows"
   script_files <- list.files(scripts_dir, pattern = "\\.ps1$", full.names = FALSE)
   script_choices <- c("请选择脚本...", script_files)
+  
+  is_admin <- !is.null(user) && user$role == "admin"
   
   dashboardPage(
     dashboardHeader(title = "ITOM 管理控制台"),
@@ -75,6 +80,9 @@ dashboard_ui <- function() {
         menuItem("FirstWin", tabName = "firstwin", icon = icon("desktop")),
         menuItem("系统信息", tabName = "system_info", icon = icon("server")),
         menuItem("操作记录", tabName = "operation_history", icon = icon("history")),
+        if (is_admin) {
+          menuItem("授权管理", tabName = "user_management", icon = icon("users"))
+        },
         menuItem("设置", tabName = "settings", icon = icon("cog"))
       )
     ),
@@ -295,6 +303,39 @@ dashboard_ui <- function() {
           )
         ),
         
+        tabItem(tabName = "user_management",
+          fluidRow(
+            box(
+              title = "创建用户",
+              status = "primary",
+              solidHeader = TRUE,
+              width = 6,
+              
+              textInput("new_username", "用户名:", placeholder = "输入用户名"),
+              passwordInput("new_password", "密码:", placeholder = "输入密码"),
+              passwordInput("new_password_confirm", "确认密码:", placeholder = "再次输入密码"),
+              textInput("new_email", "邮箱:", placeholder = "输入邮箱地址"),
+              selectInput("new_role", "角色:", choices = c("user" = "user", "admin" = "admin"), selected = "user"),
+              br(), br(),
+              actionButton("create_user", "创建用户", 
+                         icon = icon("user-plus"),
+                         class = "btn-success"),
+              br(), br(),
+              textOutput("create_user_message")
+            )
+          ),
+          
+          fluidRow(
+            box(
+              title = "用户列表",
+              status = "info",
+              solidHeader = TRUE,
+              width = 12,
+              DT::dataTableOutput("users_table")
+            )
+          )
+        ),
+        
         tabItem(tabName = "settings",
           fluidRow(
             box(
@@ -344,7 +385,7 @@ server <- function(input, output, session) {
   
   output$app_ui <- renderUI({
     if (logged_in()) {
-      dashboard_ui()
+      dashboard_ui(current_user())
     } else {
       login_ui()
     }
@@ -869,6 +910,91 @@ server <- function(input, output, session) {
       cat(error_msg, file = log_file, append = TRUE, sep = "\n")
       script_output_val(paste(script_output_val(), error_msg, sep = "\n"))
       showNotification("执行失败", type = "error")
+    })
+  })
+  
+  users_data <- reactiveVal(data.frame())
+  
+  observe({
+    req(current_user())
+    if (current_user()$role == "admin") {
+      users_data(get_all_users())
+    }
+  })
+  
+  output$users_table <- DT::renderDataTable({
+    DT::datatable(
+      users_data(),
+      selection = 'single',
+      editable = FALSE,
+      options = list(
+        paging = TRUE,
+        searching = TRUE,
+        ordering = TRUE,
+        info = TRUE,
+        pageLength = 10
+      ),
+      rownames = FALSE,
+      colnames = c("ID", "用户名", "邮箱", "角色", "状态", "创建时间", "最后登录"),
+      filter = 'top'
+    ) %>%
+      DT::formatStyle('is_active', 
+        target = 'row',
+        backgroundColor = DT::styleEqual(c(0, 1), c('#ffebee', '#e8f5e9')))
+  })
+  
+  output$create_user_message <- renderText({
+    create_user_message_val()
+  })
+  
+  create_user_message_val <- reactiveVal("")
+  
+  observeEvent(input$create_user, {
+    username <- input$new_username
+    password <- input$new_password
+    password_confirm <- input$new_password_confirm
+    email <- input$new_email
+    role <- input$new_role
+    
+    if (is.null(username) || username == "") {
+      create_user_message_val("错误: 用户名不能为空")
+      showNotification("用户名不能为空", type = "error")
+      return()
+    }
+    
+    if (is.null(password) || password == "") {
+      create_user_message_val("错误: 密码不能为空")
+      showNotification("密码不能为空", type = "error")
+      return()
+    }
+    
+    if (password != password_confirm) {
+      create_user_message_val("错误: 两次输入的密码不一致")
+      showNotification("两次输入的密码不一致", type = "error")
+      return()
+    }
+    
+    existing_user <- get_user_by_username(username)
+    if (nrow(existing_user) > 0) {
+      create_user_message_val("错误: 用户名已存在")
+      showNotification("用户名已存在", type = "error")
+      return()
+    }
+    
+    tryCatch({
+      create_user(username, password, email, role)
+      create_user_message_val("成功: 用户创建成功")
+      showNotification("用户创建成功", type = "message")
+      users_data(get_all_users())
+      
+      updateTextInput(session, "new_username", value = "")
+      updateTextInput(session, "new_password", value = "")
+      updateTextInput(session, "new_password_confirm", value = "")
+      updateTextInput(session, "new_email", value = "")
+      
+    }, error = function(e) {
+      create_user_message_val(paste("错误:", e$message))
+      showNotification(paste("创建用户失败:", e$message), type = "error")
     })
   })
 }

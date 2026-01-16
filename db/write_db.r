@@ -20,6 +20,46 @@ create_user <- function(username, password, email = NULL, role = 'user') {
   return(result)
 }
 
+get_all_users <- function() {
+  db <- get_db_connection()
+  on.exit(dbDisconnect(db))
+  
+  query <- "SELECT id, username, email, role, is_active, created_at, last_login FROM users ORDER BY id"
+  result <- dbGetQuery(db, query)
+  
+  return(result)
+}
+
+delete_user <- function(user_id) {
+  db <- get_db_connection()
+  on.exit(dbDisconnect(db))
+  
+  query <- sprintf("DELETE FROM users WHERE id = %d", user_id)
+  result <- dbExecute(db, query)
+  
+  return(result)
+}
+
+update_user_status <- function(user_id, is_active) {
+  db <- get_db_connection()
+  on.exit(dbDisconnect(db))
+  
+  query <- sprintf("UPDATE users SET is_active = %d WHERE id = %d", is_active, user_id)
+  result <- dbExecute(db, query)
+  
+  return(result)
+}
+
+update_user_role <- function(user_id, role) {
+  db <- get_db_connection()
+  on.exit(dbDisconnect(db))
+  
+  query <- sprintf("UPDATE users SET role = '%s' WHERE id = %d", role, user_id)
+  result <- dbExecute(db, query)
+  
+  return(result)
+}
+
 update_user_password <- function(user_id, new_password) {
   db <- get_db_connection()
   on.exit(dbDisconnect(db))
