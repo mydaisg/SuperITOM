@@ -388,8 +388,8 @@ server <- function(input, output, session) {
     current_user(user)
     update_user_last_login(user$id)
     
-    login_message_val(paste("登录成功！欢迎,", user$display_name))
-    showNotification(paste("欢迎,", user$display_name), type = "message")
+    login_message_val(paste("登录成功！欢迎,", user$username))
+    showNotification(paste("欢迎,", user$username), type = "message")
   })
   
   output$git_output <- renderPrint({
