@@ -71,7 +71,7 @@ dashboard_ui <- function(user = NULL) {
   is_admin <- !is.null(user) && user$role == "admin"
   
   dashboardPage(
-    dashboardHeader(title = "ITOM 管理控制台"),
+    dashboardHeader(title = "ITOM", titleWidth = 100),
     
     dashboardSidebar(
       sidebarMenu(
@@ -351,9 +351,18 @@ dashboard_ui <- function(user = NULL) {
                         value = "D:\\GitHub\\SuperITOM\\logs",
                         placeholder = "输入日志目录"),
               br(), br(),
-              actionButton("save_settings", "保存设置", 
-                         icon = icon("save"),
-                         class = "btn-primary"),
+              fluidRow(
+                column(6,
+                  actionButton("save_settings", "保存设置", 
+                             icon = icon("save"),
+                             class = "btn-primary")
+                ),
+                column(6,
+                  actionButton("logout", "退出", 
+                             icon = icon("sign-out-alt"),
+                             class = "btn-default")
+                )
+              ),
               br(), br(),
               verbatimTextOutput("settings_output")
             )
@@ -431,6 +440,17 @@ server <- function(input, output, session) {
     
     login_message_val(paste("登录成功！欢迎,", user$username))
     showNotification(paste("欢迎,", user$username), type = "message")
+  })
+  
+  observeEvent(input$logout, {
+    logged_in(FALSE)
+    current_user(NULL)
+    login_message_val("")
+    
+    updateTextInput(session, "username", value = "")
+    updateTextInput(session, "password", value = "")
+    
+    showNotification("已退出登录", type = "message")
   })
   
   output$git_output <- renderPrint({

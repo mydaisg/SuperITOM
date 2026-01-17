@@ -64,3 +64,35 @@ v0.9
 cd "d:\GitHub\SuperITOM\db"; Get-Content create_db.sql | .\sqlite3.exe GH_ITOM.db
 cd "d:\GitHub\SuperITOM\db"; .\sqlite3.exe GH_ITOM.db ".tables"
 Rscript -e "shiny::runApp('D:/GitHub/SuperITOM', launch.browser = TRUE)"
+Rscript -e "shiny::runApp('D:/GitHub/SuperITOM/app.R', launch.browser = FALSE, port = 9000)"
+
+## 主要功能
+这是一个基于 R Shiny 的Web应用，用于企业级的IT运维自动化管理，主要功能包括：
+
+### 核心模块
+1. 用户认证系统 - 管理员登录和权限控制
+2. Git自动提交 - 自动化代码提交和版本管理
+3. LocalDir - 本地工作目录创建和管理
+4. FirstWin - 远程Windows客户端管理
+5. 系统信息 - 系统配置和运行状态监控
+6. 操作记录 - 历史操作日志
+7. 设置 - 系统配置管理
+### 自动化运维脚本
+通过PowerShell脚本实现以下功能：
+
+- 安装PowerShell 7
+- 配置WinRM远程管理
+- 收集主机信息（系统、软件、网络等）
+- 重命名主机
+- 加入域（AD域管理）
+- 配置本地管理员账户
+- 部署工具（PuTTY、Sysinternals等）
+- Linux客户端部署
+- 系统健康检查
+### 技术架构
+- 前端 : R Shiny + shinydashboard
+- 数据库 : SQLite
+- 自动化 : PowerShell脚本
+- 远程管理 : WinRM
+- 版本控制 : Git
+这是一个面向企业环境的IT运维自动化平台，主要用于批量管理和配置Windows/Linux客户端，支持域管理、远程执行、健康检查等运维场景。
